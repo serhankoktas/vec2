@@ -73,6 +73,7 @@ Sets y to the passed number. Returns `this`.
 var a = new Vec2(10, 5);
 a.setY(7).toString();
 => '(10, 7)'
+```
 
 ### reset()
 
