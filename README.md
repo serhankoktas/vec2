@@ -450,7 +450,8 @@ Frees the coordinates from bounding rectangle. Returns `this`.
 var a = new Vec2(10, 5);
 var lowerBound = new Vec2(9, 2);
 var upperBound = new Vec2(2, 4);
-a.limit(lowerBound, upperBound).toString();
+a.limit(lowerBound, upperBound);
+a.addX(10).addY(10).toString();
 => '(9, 4)'
 
 a.unlimit().addX(10).addY(10).toString();
