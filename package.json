@@ -1,7 +1,7 @@
 {
   "name": "taksim-vec2",
   "description": "A javascript 2D vector library for node.js and browser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/taksim-vec2.js",
   "homepage": "https://github.com/taksim-io/vec2",
   "keywords": [
