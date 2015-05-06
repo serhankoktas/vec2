@@ -510,6 +510,28 @@ describe('clone', function() {
     expect(b.x).to.equal(11);
     expect(b.y).to.equal(7);
   });
+  it('should clone bounding rectangle', function() {
+    var a = new Vec2(10, 5);
+    var lowerBound = new Vec2(9, 2);
+    var upperBound = new Vec2(2, 4);
+    a.limit(upperBound, lowerBound);
+
+    var b = a.clone();
+    b.addX(1).addY(2);
+    expect(b.x).to.equal(9);
+    expect(b.y).to.equal(4);
+  });
+  it('should not clone inital values', function() {
+    var a = new Vec2(10, 5);
+    var lowerBound = new Vec2(9, 2);
+    var upperBound = new Vec2(2, 4);
+    a.limit(upperBound, lowerBound);
+
+    var b = a.clone();
+    b.setX(6).setY(3).reset();
+    expect(b.x).to.equal(9);
+    expect(b.y).to.equal(4);
+  });
 });
 
 describe('isEqual', function() {

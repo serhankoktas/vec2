@@ -571,7 +571,7 @@ a.distance(b);
 
 ### clone()
 
-Returns a new instance of Vec2 with `this` vector's coordinates.
+Returns a new instance of Vec2 with `this` vector's coordinates and bounding rectangle (See [limit()](#limitupperboundvector-lowerboundvector) method).
 
 ```js
 var a = new Vec2(10, 5);

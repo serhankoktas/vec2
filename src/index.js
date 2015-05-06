@@ -252,7 +252,10 @@
   };
 
   proto.clone = function() {
-    return new TaksimVec2(this.x, this.y);
+    var cloned = new TaksimVec2(this.x, this.y);
+    set(cloned, 'upperBound', get(this, 'upperBound'));
+    set(cloned, 'lowerBound', get(this, 'lowerBound'));
+    return cloned;
   };
 
   proto.isEqual = function(vec2) {
