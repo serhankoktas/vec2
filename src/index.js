@@ -26,8 +26,8 @@
   function TaksimVec2(x, y) {
     var _t = this._t || (this._t = {});
     _t[namespace] = {};
-    _t[namespace].x = this.x = float(x, 0);
-    _t[namespace].y = this.y = float(y, 0);
+    _t[namespace].x = this.x = toNumber(x, 0);
+    _t[namespace].y = this.y = toNumber(y, 0);
   }
 
   proto.set = function(vec2) {
@@ -35,12 +35,12 @@
   };
 
   proto.setX = function(x) {
-    this.x = float(x, this.x);
+    this.x = toNumber(x, this.x);
     return this.maxX().minX();
   };
 
   proto.setY = function(y) {
-    this.y = float(y, this.y);
+    this.y = toNumber(y, this.y);
     return this.maxY().minY();
   };
 
@@ -65,11 +65,11 @@
   };
 
   proto.addX = function(number) {
-    return this.setX(this.x + float(number, 0));
+    return this.setX(this.x + toNumber(number, 0));
   };
 
   proto.addY = function(number) {
-    return this.setY(this.y + float(number, 0));
+    return this.setY(this.y + toNumber(number, 0));
   };
 
   proto.subtract = function(vec2) {
@@ -77,11 +77,11 @@
   };
 
   proto.subtractX = function(number) {
-    return this.setX(this.x - float(number, 0));
+    return this.setX(this.x - toNumber(number, 0));
   };
 
   proto.subtractY = function(number) {
-    return this.setY(this.y - float(number, 0));
+    return this.setY(this.y - toNumber(number, 0));
   };
 
   proto.multiply = function(vec2) {
@@ -89,11 +89,11 @@
   };
 
   proto.multiplyX = function(number) {
-    return this.setX(this.x * float(number, 1));
+    return this.setX(this.x * toNumber(number, 1));
   };
 
   proto.multiplyY = function(number) {
-    return this.setY(this.y * float(number, 1));
+    return this.setY(this.y * toNumber(number, 1));
   };
 
   proto.divide = function(vec2) {
@@ -101,11 +101,11 @@
   };
 
   proto.divideX = function(number) {
-    return this.setX(this.x / float(number, 1));
+    return this.setX(this.x / toNumber(number, 1));
   };
 
   proto.divideY = function(number) {
-    return this.setY(this.y / float(number, 1));
+    return this.setY(this.y / toNumber(number, 1));
   };
 
   proto.round = function() {
@@ -158,7 +158,7 @@
   proto.minX = function(number) {
     var x = this.x;
     var lb = get(this, 'lowerBound');
-    x = Math.min(x, float(number, x));
+    x = Math.min(x, toNumber(number, x));
     this.x = Math.max(lb ? lb.x : x, x);
     return this;
   };
@@ -166,7 +166,7 @@
   proto.minY = function(number) {
     var y = this.y;
     var lb = get(this, 'lowerBound');
-    y = Math.min(y, float(number, y));
+    y = Math.min(y, toNumber(number, y));
     this.y = Math.max(lb ? lb.y : y, y);
     return this;
   };
@@ -178,7 +178,7 @@
   proto.maxX = function(number) {
     var x = this.x;
     var ub = get(this, 'upperBound');
-    x = Math.max(x, float(number, x));
+    x = Math.max(x, toNumber(number, x));
     this.x = Math.min(ub ? ub.x : x, x);
     return this;
   };
@@ -186,7 +186,7 @@
   proto.maxY = function(number) {
     var y = this.y;
     var ub = get(this, 'upperBound');
-    y = Math.max(y, float(number, y));
+    y = Math.max(y, toNumber(number, y));
     this.y = Math.min(ub ? ub.y : y, y);
     return this;
   };
@@ -230,11 +230,11 @@
   };
 
   proto.dot = function(vec2) {
-    return this.x * float(vec2.x, 0) + this.y * float(vec2.y, 0);
+    return this.x * toNumber(vec2.x, 0) + this.y * toNumber(vec2.y, 0);
   };
 
   proto.cross = function(vec2) {
-    return this.x * float(vec2.y, 0) - this.y * float(vec2.x, 0);
+    return this.x * toNumber(vec2.y, 0) - this.y * toNumber(vec2.x, 0);
   };
 
   proto.length = function() {
@@ -270,7 +270,7 @@
     return [this.x, this.y];
   };
 
-  function float(number, fallback) {
+  function toNumber(number, fallback) {
     var i = parseFloat(number);
     return isNaN(i) ? fallback : i;
   }
