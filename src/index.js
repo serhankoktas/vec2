@@ -1,5 +1,6 @@
 /**
- * @license MIT
+* Hello World *
+* @license MIT
  * taksim.io/vec2 // @echo VERSION
  * https://github.com/taksim-io/vec2
  * Copyright (c) 2015 taksim.io
